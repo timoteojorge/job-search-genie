@@ -1,0 +1,38 @@
+<div class="content">
+    <div *ngFor="let row of rows" fxLayout="row" fxLayoutGap="10px" class="job-row">
+            <div fxFlex="33" *ngFor="let job of row">
+                <mat-card class="job-card mat-elevation-z6">
+                    <mat-card-header>
+                      <mat-card-title>{{getTitle(job)}}</mat-card-title>
+                      <mat-card-subtitle>{{getSubtitle(job)}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content class="card-content">
+                      <p>
+                        {{getDescription(job)}}
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button (click)="apply(job)">APPLY</button>
+                    </mat-card-actions>
+                  </mat-card>
+            </div>
+    
+    </div>
+</div>
+
+<!-- 
+        category: Category;
+    adref: string;
+    redirect_url: string;
+    description: string;
+    id: string;
+    salary_is_predicted: string;
+    company: Company;
+    salary_min: number;
+    latitude: number;
+    salary_max: number;
+    title: string;
+    created: string;
+    location: Location;
+    longitude: number;
+ -->

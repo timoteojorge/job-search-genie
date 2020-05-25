@@ -1,0 +1,20 @@
+.job-card {
+    max-width: 400px;
+    max-height: 350px;
+}
+
+.content{
+    margin: 10px;
+}
+
+:host ::ng-deep {
+    width: 100%;
+}
+
+.card-content{
+    height: 200px;
+}
+
+.job-row{
+    margin-bottom: 10px;
+}

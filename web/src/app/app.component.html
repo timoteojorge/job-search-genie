@@ -1,0 +1,39 @@
+<div class="toolbar mat-elevation-z6" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+  />
+  <span>Job Search Genie</span>
+    <div class="spacer"></div>
+</div>
+
+<!-- <mat-toolbar color="primary">
+  <span>Job Search Genie</span>
+</mat-toolbar> -->
+
+<div class="content" role="main">
+
+  <div [formGroup]="formGroup" class="input-city">
+    <mat-form-field class="search-input">
+      <input matInput type="text" placeholder="City" aria-label="Number" matInput formControlName="city" [matAutocomplete]="auto">
+      <mat-spinner *ngIf="loadingCities" matSuffix [diameter]="18" style="float: left; margin-right: 8px"></mat-spinner>
+      <button mat-button matSuffix mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="showCityName">
+        <mat-option *ngFor="let city of cities" [value]="city" (onSelectionChange)="changeCity(city)">
+          {{ city.name }}, {{city.countryCode}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-hint *ngIf="!formGroup.controls.city.value  || formGroup.controls.city.value.length < 3"> Type at least 3 characters to search</mat-hint>
+      <mat-error *ngIf="cityNotFound">No cities were found.</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="noJobsFound">No jobs were found for selected city.</div>
+  <app-job-list [list]="jobs"></app-job-list>
+
+  <mat-spinner *ngIf="loadingJobs" matSuffix color="primary"></mat-spinner>
+  <button *ngIf="(!loadingJobs && (currentPage + 1) < totalPages)" mat-raised-button color="primary" (click)="more()">MORE</button>
+</div>
