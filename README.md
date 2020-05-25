@@ -26,6 +26,7 @@ A simple Full-stack app built with Spring Boot and Angular 9 to search for jobs 
 1. Open terminal
 2. Go to `web` folder
 3. Run `npm i && npm start`
+3. Open a browser and go to `http://localhost:4200`
 
 ## How to run tests on angular web app
 1. Open terminal
