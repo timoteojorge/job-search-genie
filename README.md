@@ -32,3 +32,11 @@ A simple Full-stack app built with Spring Boot and Angular 9 to search for jobs 
 1. Open terminal
 2. Go to `web` folder
 3. Run `npm i && npm test`
+
+## Testing Use case on the web app
+1. Run api
+2. Run angular web app
+3. Open a browser and go to `http://localhost:4200`
+4. On the search input type `london` and select `London, GB`
+5. A list of cards with jobs should appear
+
